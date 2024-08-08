@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Community Hub - Events</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'events/css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Upcoming Events</h1>
+        <a href="{% url 'event_create' %}" class="create-event-link">Create New Event +</a>
+        <ul>
+            {% for event in events %}
+                <li>
+                    <span>
+                        <a href="{% url 'event_detail' event.pk %}">{{ event.title }}</a> - {{ event.date_time }}
+                    </span>
+                    <a href="{% url 'event_detail' event.pk %}">View Details</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
+

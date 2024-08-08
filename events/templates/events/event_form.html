@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create Event - Community Hub</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'events/css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Create New Event</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Submit</button>
+        </form>
+        <a href="{% url 'event_list' %}" class="back-link">Back to Events List</a>
+    </div>
+</body>
+</html>

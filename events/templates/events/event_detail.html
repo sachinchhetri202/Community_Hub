@@ -1,0 +1,21 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ event.title }} - Community Hub</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'events/css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>{{ event.title }}</h1>
+        <div class="event-detail">
+            <p>{{ event.description }}</p>
+            <p><strong>Location:</strong> {{ event.location }}</p>
+            <p><strong>Date and Time:</strong> {{ event.date_time }}</p>
+        </div>
+        <a href="{% url 'event_list' %}" class="back-link">Back to Events List</a>
+    </div>
+</body>
+</html>
+
