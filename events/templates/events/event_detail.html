@@ -1,5 +1,4 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,12 +9,43 @@
     <div class="container">
         <h1>{{ event.title }}</h1>
         <div class="event-detail">
-            <p>{{ event.description }}</p>
-            <p><strong>Location:</strong> {{ event.location }}</p>
-            <p><strong>Date and Time:</strong> {{ event.date_time }}</p>
+            {% if event.description %}
+                <p>{{ event.description }}</p>
+            {% endif %}
+            
+            {% if event.location %}
+                <p><strong>Location:</strong> {{ event.location }}</p>
+            {% endif %}
+            
+            {% if event.start_time %}
+                <p><strong>Start Time:</strong> {{ event.start_time }}</p>
+            {% endif %}
+            
+            {% if event.end_time %}
+                <p><strong>End Time:</strong> {{ event.end_time }}</p>
+            {% endif %}
+            
+            {% if event.organizer %}
+                <p><strong>Organizer:</strong> {{ event.organizer }}</p>
+            {% endif %}
+            
+            {% if event.contact_email %}
+                <p><strong>Contact Email:</strong> <a href="mailto:{{ event.contact_email }}">{{ event.contact_email }}</a></p>
+            {% endif %}
+            
+            {% if event.contact_phone %}
+                <p><strong>Contact Phone:</strong> {{ event.contact_phone }}</p>
+            {% endif %}
+
+            {% if event.cost %}
+                <p><strong>Cost:</strong> {{ event.cost }}</p>
+            {% endif %}
+            
+            {% if event.tickets %}
+                <p><strong>Tickets:</strong> {{ event.tickets }}</p>
+            {% endif %}
         </div>
         <a href="{% url 'event_list' %}" class="back-link">Back to Events List</a>
     </div>
 </body>
 </html>
-
